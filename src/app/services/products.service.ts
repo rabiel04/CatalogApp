@@ -9,9 +9,9 @@ export class ProductsService {
 products! :Array<Product>
   constructor() {
     this.products=[
-      {id:1, name:"Computer",price:6500},
-      {id:2, name:"Printer",price:150},
-      {id:3, name:"Smart Phone",price:500}]
+      {id:1, name:"Computer",price:6500,promotion:true},
+      {id:2, name:"Printer",price:150,promotion:false},
+      {id:3, name:"Smart Phone",price:500,promotion:true}]
   }
 
   public getAllProducts() :Observable<Array<Product>>{
@@ -25,4 +25,5 @@ products! :Array<Product>
      this.products=this.products.filter(p=>p.id!=id)
     return of(true)
   }
+
 }

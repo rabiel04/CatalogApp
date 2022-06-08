@@ -5,10 +5,19 @@
   <div class="card" *ngIf="products ;else errors ">
     <div class="card-header"> Products List</div>
     <div class="card-body">
+      <form>
+        <div class="input-group">
+          <label class="input-group-text">Keyword</label>
+          <input type="text" class="form-control">
+          <button class="btn btn-outline-info">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </form>
       <table class="table">
         <thead>
          <tr>
-           <th>ID</th><th>Name</th><th>Price</th>
+           <th>ID</th><th>Name</th><th>Prce</th>
          </tr>
         </thead>
         <tbody>
@@ -16,6 +25,12 @@
         <td>{{p.id}}</td>
         <td>{{p.name}}</td>
         <td>{{p.price}}</td>
+          <td>
+            <i *ngIf="p.promotion"class="bi bi-heart-pulse-fill text-success"></i>
+          </td>
+          <td>
+            <button  *ngIf="p.promotion"class="btn btn-success">Promo ON</button>
+          </td>
           <td>
             <button class="btn btn-danger" (click)="handleDeleteProduct(p)">
               <i class="bi-trash"></i>
